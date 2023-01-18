@@ -96,11 +96,20 @@ Both apps have similar structure: the user triggers an action on a game via an H
 
 **Q2.6.** The filename suffixes for these views are different in Rails than they were in the Sinatra app.  What information does the rightmost suffix of the filename  (e.g.: in `foobar.abc.xyz`, the suffix `.xyz`) tell you about the file contents?
 
+# Answer:
+
 **Q2.7.** What information does the  other suffix tell you about what Rails is being asked to do with the file?
+
+# Answer:
 
 **Q2.8.** In what file is the information in the Rails app that maps routes (e.g. `GET /new`)  to controller actions?
 
+# Answer:
+
 **Q2.9.** What is the role of the `:as => 'name'` option in the route declarations of `config/routes.rb`?  (Hint: look at the views.)
+
+# Answer: ใช้ในการเรียก path ของ route ในส่วน views
+
 
 ## 3. Session
 
