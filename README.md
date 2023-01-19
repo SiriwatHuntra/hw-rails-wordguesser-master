@@ -121,7 +121,7 @@ Both apps ensure that the current game is loaded from the session before any con
 
 **Q3.2.** A popular serialization format for exchanging data between Web apps is [JSON](https://en.wikipedia.org/wiki/JSON).  Why wouldn't it work to use JSON instead of YAML?  (Hint: try replacing `YAML.load()` with `JSON.parse()` and `.to_yaml` with `.to_json` to do this test.  You will have to clear out your cookies associated with `localhost:3000`, or restart your browser with a new Incognito/Private Browsing window, in order to clear out the `session[]`.  Based on the error messages you get when trying to use JSON serialization, you should be able to explain why YAML serialization works in this case but JSON doesn't.)
 
-# Answer:
+# Answer: ไฟล์ JSON ไม่สามารถใช้แทนYAMLได้เนื่องจาก JSONไม่รองรับ additional data type
 
 ## 4. Views
 
