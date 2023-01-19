@@ -74,11 +74,11 @@ Both apps have similar structure: the user triggers an action on a game via an H
 
 **Q2.1.** Where in the Rails app directory structure is the code corresponding to the `WordGuesserGame` model?
 
-# Answer:
+# Answer: WordGuesserGame modle is in directory /app/model/word_guesser_game.rb
 
 **Q2.2.** In what file is the code that most closely corresponds to the  logic in the Sinatra apps' `app.rb` file that handles incoming user actions?
 
-# Answer: ไฟล์ที่ใกล้เครียงกับ logic ใน Sinatra apps คือ word_guesser_game.rb , มีหน้าที่ในการจักการกับ input ที่Users ป้อนเข้ามา
+# Answer: ไฟล์ที่ใกล้เคียงกับ logic ใน Sinatra apps คือ word_guesser_game.rb , มีหน้าที่ในการจักการกับ input ที่Users ป้อนเข้ามา
 
 
 **Q2.3.** What class contains that code?
@@ -117,7 +117,11 @@ Both apps ensure that the current game is loaded from the session before any con
 
 **Q3.1.** In the Sinatra version, `before do...end` and `after do...end` blocks are used for session management.  What is the closest equivalent in this Rails app, and in what file do we find the code that does it?
 
+# Answer:
+
 **Q3.2.** A popular serialization format for exchanging data between Web apps is [JSON](https://en.wikipedia.org/wiki/JSON).  Why wouldn't it work to use JSON instead of YAML?  (Hint: try replacing `YAML.load()` with `JSON.parse()` and `.to_yaml` with `.to_json` to do this test.  You will have to clear out your cookies associated with `localhost:3000`, or restart your browser with a new Incognito/Private Browsing window, in order to clear out the `session[]`.  Based on the error messages you get when trying to use JSON serialization, you should be able to explain why YAML serialization works in this case but JSON doesn't.)
+
+# Answer:
 
 ## 4. Views
 
@@ -137,4 +141,4 @@ Verify the Cucumber scenarios run and pass by running `rake cucumber`.
 
 **Q5.1.** What is a qualitative explanation for why the Cucumber scenarios and step definitions didn't need to be modified at all to work equally well with the Sinatra or Rails versions of the app?
 
-# Answer : เนื่องจากCucumber สามารถเขียนเป็นรูปแบบ Gherkin Syntax (ภาษาบรรยาย)และเน้นไปที่การทำtest case BDD(behavior Drive Development)จากEnd User ทำให้ไม่ต้องการการปรับแต่งในการใช้งานทั้ง Sinitra และ Rails
+# Answer : เนื่องจากCucumber เน้นไปที่การทำtest case แบบ BDD(behavior Drive Development)จากEnd User ทำให้ไม่ต้องการการปรับแต่งในการใช้งานทั้ง Sinitra และ Rails
