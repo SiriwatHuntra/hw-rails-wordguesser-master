@@ -66,8 +66,6 @@ For subsequent previews, you will not need to press the drop down -- your button
 
 Play around with the game to convince yourself it works the same as the Sinatra version.
 
-# Answer:
-
 ## 2. Where Things Are
 
 Both apps have similar structure: the user triggers an action on a game via an HTTP request; a particular chunk of code is called to "handle" the request as appropriate; the `WordGuesserGame` class logic is called to handle the action; and usually, a view is rendered to show the result.  But the locations of the code corresponding to each of these tasks is slightly different between Sinatra and Rails.
@@ -96,19 +94,20 @@ Both apps have similar structure: the user triggers an action on a game via an H
 
 **Q2.6.** The filename suffixes for these views are different in Rails than they were in the Sinatra app.  What information does the rightmost suffix of the filename  (e.g.: in `foobar.abc.xyz`, the suffix `.xyz`) tell you about the file contents?
 
-# Answer: นามสกุลของชื่อไฟล์อย่างเช่น .xyz ใน foobar.abc.xyz บอกเราได้ว่า template engine ใช้ในไฟล์นั้นๆ ในส่วนของ viewsใน rails ส่วนใหญ่นามสกุลของมันจะเป็น .erb, .haml, .slim or .builder ฯลฯ ซึ่งเป็น template engines ที่ Rails นั้น supports ตั้งแต่แรกอยู่แล้ว และใช้ในการแปลต่างๆของ HTML, XML หรือ JSON และ Ruby code และทำการ generate output สุดท้าย โดยการทำแบบนี้ทำให้นักพัฒนาสามารถเลือก template engine ที่เข้ากับความต้องการของนักพัฒนาเอง
+# Answer: Extention ของชื่อไฟล์อย่างเช่น .xyz ใน foobar.abc.xyz บอกได้ว่า template engine ใช้ในไฟล์นั้นๆในส่วนของ viewsใน rails ส่วนใหญ่Extention จะเป็น .erb, .haml, .slim or .builder ฯลฯ ซึ่งเป็น template engines ที่ Rails นั้น supports ตั้งแต่แรกอยู่แล้ว และใช้ในการแปลต่างๆของ HTML, XML หรือ JSON และ Ruby code และทำการ generate output สุดท้าย ทำให้นักพัฒนาสามารถเลือก template engine ที่เข้ากับความต้องการได้
 
 **Q2.7.** What information does the  other suffix tell you about what Rails is being asked to do with the file?
 
-# Answer:
+# Answer: ไฟล์ที่มีextention เป็น .html.erb, .json.jbuilder, .js.erb นั้นบอกให้ Rails รู้ว่า format หรือ template engine ที่ใช้ในการ render ไฟล์เช่นพวก .html หรือ .json ระบุให้ rails เลยว่าต้องการการตอบกลับ data แบบไหน เช่นเดียวกันกับ template engine พวก .erb, .jbuilder หรือ .slim นั้นระบุให้ railsเลยว่าจะแปลไฟล์และ generate format ยังไง
 
 **Q2.8.** In what file is the information in the Rails app that maps routes (e.g. `GET /new`)  to controller actions?
 
-# Answer:
+# Answer: ใน Rails ข้อมูลที่เส้นทางของ Route (GET /new) ไปยัง controller  ส่วนใหญ่ประกาศในไฟล์ config/routes.rb เช่นในไฟล์ config/routes.rb จะเจอ route "get '/new', to: 'games#new'" ซึ่ง GET request "/new" URL ไปยัง action ใน GamesController
+
 
 **Q2.9.** What is the role of the `:as => 'name'` option in the route declarations of `config/routes.rb`?  (Hint: look at the views.)
 
-# Answer: ใช้ในการเรียก path ของ route ในส่วน views
+# Answer: ใช้ในการเรียก path ของ route ในไฟล์ cofig/route.rb ที่สามารถใช้งานได้ใน views และ controllers แทน URL ทำให้เปลี่ยนโครงสร้าง URL ของ application โดยไม่ส่งผลต่อส่วนอื่นๆ
 
 
 ## 3. Session
@@ -117,7 +116,7 @@ Both apps ensure that the current game is loaded from the session before any con
 
 **Q3.1.** In the Sinatra version, `before do...end` and `after do...end` blocks are used for session management.  What is the closest equivalent in this Rails app, and in what file do we find the code that does it?
 
-# Answer:
+# Answer: before_action และ after_action callbacks จะอยู่ในไฟล์ app/controllers/application_controller.rb file
 
 **Q3.2.** A popular serialization format for exchanging data between Web apps is [JSON](https://en.wikipedia.org/wiki/JSON).  Why wouldn't it work to use JSON instead of YAML?  (Hint: try replacing `YAML.load()` with `JSON.parse()` and `.to_yaml` with `.to_json` to do this test.  You will have to clear out your cookies associated with `localhost:3000`, or restart your browser with a new Incognito/Private Browsing window, in order to clear out the `session[]`.  Based on the error messages you get when trying to use JSON serialization, you should be able to explain why YAML serialization works in this case but JSON doesn't.)
 
