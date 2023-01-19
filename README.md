@@ -137,4 +137,4 @@ Verify the Cucumber scenarios run and pass by running `rake cucumber`.
 
 **Q5.1.** What is a qualitative explanation for why the Cucumber scenarios and step definitions didn't need to be modified at all to work equally well with the Sinatra or Rails versions of the app?
 
-# Answer : เนื่องจากCucumber สามารถเขียนเป็นรูปแบบ Gherkin Syntax (ภาษาบรรยาย)และเน้นไปที่การทำtest case BDD(behavior Drive Development)จากEnd User
+# Answer : เนื่องจากCucumber สามารถเขียนเป็นรูปแบบ Gherkin Syntax (ภาษาบรรยาย)และเน้นไปที่การทำtest case BDD(behavior Drive Development)จากEnd User ทำให้ไม่ต้องการการปรับแต่งในการใช้งานทั้ง Sinitra และ Rails
