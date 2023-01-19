@@ -127,11 +127,19 @@ Both apps ensure that the current game is loaded from the session before any con
 
 **Q4.1.** In the Sinatra version, each controller action ends with either `redirect` (which as you can see becomes `redirect_to` in Rails) to redirect the player to another action, or `erb` to render a view.  Why are there no explicit calls corresponding to `erb` in the Rails version? (Hint: Based on the code in the app, can you discern the Convention-over-Configuration rule that is at work here?)
 
+# Answer: ใน Rails version ไม่มีการเรียก erb ที่ชัดเจนใน controller action เพราะว่า Rails ใช้ระบบ convention-over-configuration โดยจะจัดการให้ views นั้นจะอยู่ใน directoryที่ชัดเจนและชื่อก็ควรเหมือนกันกับ controller actions โดยไม่ให้ developer ต้องมาระบุ views ที่จะแสดงผล ในกรณีนี้คือ Convention-over-Configuration ทำให้ developer นั้นสร้าง web ได้เร็วและมีประสิทธิภาพด้วยการเลี่ยงงานที่ซ้ำซาก
+
 **Q4.2.** In the Sinatra version, we directly coded an HTML form using the `<form>` tag, whereas in the Rails version we are using a Rails method `form_tag`, even though it would be perfectly legal to use raw HTML `<form>` tags in Rails.  Can you think of a reason Rails might introduce this "level of indirection"?
+
+# Answer: โดยรวมแล้ว Rails ช่วยในเรื่องของ ความปลอดภัย การดูแลรักษาที่ง่ายขึ้น การใช้งานที่มากหลาย การทำให้มี productivity และรองรับ conventions
 
 **Q4.3.** How are form elements such as text fields and buttons handled in Rails?  (Again, raw HTML would be legal, but what's the motivation behind the way Rails does it?)
 
+# Answer: ใน Rails element เช่น text fields และ ปุ่มนั้นถูกจัดการโดย html หลายตัวร่วมกับ Ruby code ซึ่ง Rails framework นั้นมี helper method ที่สร้าง html ที่จำเป็นต่อ form element นั้นๆ และยังให้ผู้พัฒนาระบุตัวเลือกและattributesต่างๆโดยใช้ Ruby code ซึ่งข้อดีของ rails helper methods นั้นคือการทำform ให้ใช้งานได้กับ Rails conventions ในตัวเองเช่นการตั้งชื่อ inputs ในการการเชื่อมต่อไปยังส่วนต่างๆ ซึ่งทำcode กระชับและมีแนวโน้มที่จะเกิดการ error ที่ต่ำ
+
 **Q4.4.** In the Sinatra version, the `show`, `win` and `lose` views re-use the code in the `new` view that offers a button for starting a new game. What Rails mechanism allows those views to be re-used in the Rails version?
+
+# Answer: ใน Rails Version ของ App ในส่วน Show win lose views นั้นสามารถนำ Code กลับมาใช้ซ้ำได้ใน view ใหม่ ที่มีปุ่ม เริ่มเกมใหม่โดยใช้ระบบ Rails rendering เรียกว่า "partials" ซึ่ง partial คือ view template ที่สามารถนำกลับมาใช้ใหม่ได้ สามารถ rendered ภายใน views อื่นๆ โดยการใช้ partial, ภายในส่วนของviews นั้นก็จะแบ่งกันใช้ common code เช่นปุ่มในการเริ่มเกมใหม่โดยที่ไม่ต้องทำปุ่มออกมาใหม่ วิธีการใช้ partial สามารถใช้โดย render method ใน partial option โดยระบุชื่อ partial file โดยไม่มี underscore
 
 ## 5. Cucumber scenarios
 
