@@ -96,7 +96,7 @@ Both apps have similar structure: the user triggers an action on a game via an H
 
 **Q2.6.** The filename suffixes for these views are different in Rails than they were in the Sinatra app.  What information does the rightmost suffix of the filename  (e.g.: in `foobar.abc.xyz`, the suffix `.xyz`) tell you about the file contents?
 
-# Answer:
+# Answer: นามสกุลของชื่อไฟล์อย่างเช่น .xyz ใน foobar.abc.xyz บอกเราได้ว่า template engine ใช้ในไฟล์นั้นๆ ในส่วนของ viewsใน rails ส่วนใหญ่นามสกุลของมันจะเป็น .erb, .haml, .slim or .builder ฯลฯ ซึ่งเป็น template engines ที่ Rails นั้น supports ตั้งแต่แรกอยู่แล้ว และใช้ในการแปลต่างๆของ HTML, XML หรือ JSON และ Ruby code และทำการ generate output สุดท้าย โดยการทำแบบนี้ทำให้นักพัฒนาสามารถเลือก template engine ที่เข้ากับความต้องการของนักพัฒนาเอง
 
 **Q2.7.** What information does the  other suffix tell you about what Rails is being asked to do with the file?
 
